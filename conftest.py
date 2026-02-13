@@ -2,7 +2,7 @@
 
 import pytest
 import os
-from CommonModule.read_config import ReadConfig
+from utils.read_config import ReadConfig
 
 @pytest.fixture(scope="session")
 def config_reader():
