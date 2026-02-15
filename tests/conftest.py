@@ -50,7 +50,7 @@ def auto_login_setup(browser, credentials):
         page = context.new_page()
 
         try:
-            from UIModule.login_admin import Admin_Portal
+            from pages.login_admin import Admin_Portal
             admin = Admin_Portal(page)
             page.goto(credentials["egd_url"])
             admin.login(credentials["admin_username"],credentials["admin_password"])
@@ -92,7 +92,7 @@ def pytest_runtest_makereport(item, call):
             except Exception as e:
                 print(f"\n[Screenshot] get snapshot fail: {e}")
 
-@pytest.fixture
+@pytest.fixture(scope="class")
 def dealer_page(browser, credentials):
     context = browser.new_context()
     page = context.new_page()
